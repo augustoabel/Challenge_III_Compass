@@ -6,7 +6,7 @@ import linkedin from '../img/linkedin.png'
 
 const Footer = () => {
   return (
-    <div className='container mx-auto bg-white w-screen z-20 h-[500px]'>
+    <div className='container mx-auto bg-white w-screen z-20 h-[500px] '>
       <div className='grid grid-cols-12 mt-10 xl:ms-[100px]'>
         <div className='col-span-4 flex flex-col gap-12'>
           <span className='font-extrabold text-2xl'>Funiro.</span>

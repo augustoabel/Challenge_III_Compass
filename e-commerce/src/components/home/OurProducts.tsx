@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Loading from './Loading';
+import Loading from '../Loading';
 
 interface Description {
     short: string;
@@ -76,6 +76,16 @@ const OurProducts = () => {
                                     backgroundPosition: 'center',
                                 }}
                             >
+                                <div className='flex flex-row justify-end items-start w-full h-full mt-2 me-2'>
+                                    {i.new == true &&
+                                        <div className="flex-row top-2 me-2 bg-[#2EC1AC] text-white text-xs font-bold rounded-full w-10 h-10 flex justify-center items-center">
+                                            New
+                                        </div>
+                                    }
+                                    <div className="top-2  bg-red-500 text-white text-xs font-semibold rounded-full w-10 h-10 flex justify-center items-center">
+                                        -{(i.discountPercentage * 100).toFixed(0)}%
+                                    </div>
+                                </div>
                             </div>
                             <div className='w-72 flex flex-col'>
                                 <span className='text-[#3A3A3A] font-semibold mt-4'>{i.title}</span>

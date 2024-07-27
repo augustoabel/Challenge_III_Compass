@@ -2,9 +2,10 @@ import React from 'react';
 import Header from '../components/Header';
 import img1 from '../img/img1.png';
 import Footer from '../components/Footer';
-import BrowserRange from '../components/BrowserRange';
-import OurProducts from '../components/OurProducts';
-import RoomsInspiration from '../components/RoomsInspiration';
+import BrowserRange from '../components/home/BrowserRange';
+import OurProducts from '../components/home/OurProducts';
+import RoomsInspiration from '../components/home/RoomsInspiration';
+import FuniroFurniture from '../components/home/FuniroFurniture';
 
 
 const Home = () => {
@@ -12,7 +13,7 @@ const Home = () => {
     <>
       <Header />
       <div
-        className="background-image "
+        className="background-image"
         style={{
           backgroundImage: `url(${img1})`,
           backgroundSize: 'cover',
@@ -41,6 +42,7 @@ const Home = () => {
       <BrowserRange />
       <OurProducts />
       <RoomsInspiration />
+      <FuniroFurniture />
 
       <Footer />
 

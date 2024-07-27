@@ -48,3 +48,14 @@ body {
   top: 50%; /* Posiciona no meio verticalmente */
   transform: translateY(-50%);
 }
+
+ /* Custom styling for the carousel */
+ .carousel {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+.carousel-item {
+  flex: none;
+  scroll-snap-align: start;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
-import Dining from '../img/dining.png'
-import Living from '../img/living.png'
-import Bedroom from '../img/bedroom.png'
+import Dining from '../../img/dining.png'
+import Living from '../../img/living.png'
+import Bedroom from '../../img/bedroom.png'
 const BrowserRange = () => {
     return (
         <div className="container mx-auto h-screen mt-12">
