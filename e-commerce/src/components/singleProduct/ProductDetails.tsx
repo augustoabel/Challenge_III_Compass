@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { Product } from '../shop/ProductShop';
 import axios from 'axios';
-import Loading from '../../components/Loading';
+import Loading from '../Loading';
 import ProductRating from './ProductRating';
 import facebook from "../../img/img_shop/facebook-fill.png"
 import linkedin from "../../img/img_shop/linkedin-fill.png"
@@ -53,7 +53,7 @@ const ProductDetails = () => {
 
 
     return (
-        <div className='container mx-auto h-screen w-screen grid grid-cols-12'>
+        <div className='container mx-auto h-auto w-auto grid grid-cols-12'>
             <div className='col-span-2 flex flex-col ms-2'>
                 {gallery.gallery.map((i) => (
                     <div className='w-40 h-40 rounded-xl  flex justify-center items-center mt-2'>
@@ -116,7 +116,7 @@ const ProductDetails = () => {
 
                 </div>
 
-                <div className='bg-[#D9D9D9] h-[1px] w-full'></div>
+                <div className='bg-[#D9D9D9] h-[1px] w-full mb-4'></div>
 
                 <div className='flex flex-col text-[#9F9F9F]'>
 

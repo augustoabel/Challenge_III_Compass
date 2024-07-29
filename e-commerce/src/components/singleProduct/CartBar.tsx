@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Loading from '../../components/Loading';
+import Loading from '../Loading';
 const CartBar = () => {
     const { id } = useParams<{ id: string }>();
     const [products, setProducts] = useState([]);
