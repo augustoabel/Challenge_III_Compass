@@ -8,6 +8,8 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
 
@@ -18,10 +20,13 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/shop" element={<Shop />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
           <Route path="/shop/singleProduct/:id" element={<SingleProduct />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/checkout" element={<Checkout />} />
+          </Route>
         </Routes>
       </Router>
     </>

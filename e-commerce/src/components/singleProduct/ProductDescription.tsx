@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios'
-import { Product } from '../shop/ProductShop';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux';
+import { fetchProductById } from '../../redux/productSlice';
+
 import Loading from '../Loading';
 const ProductDescription: React.FC = () => {
     const [activeTab, setActiveTab] = useState('description');
-    const [products, setProducts] = useState<Product>()
-    const [loading, setLoading] = useState<boolean>(true);
     const { id } = useParams<{ id: string }>();
 
+    const dispatch = useDispatch<AppDispatch>();
+    const { currentProduct, loading } = useSelector((state: RootState) => state.products);
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:3000/products/${id}`);
-                setProducts(response.data);
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching data', error);
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
+        if (id) {
+            dispatch(fetchProductById(Number(id)));
+        }
+    }, [dispatch, id]);
 
 
     if (loading) {
@@ -59,13 +53,13 @@ const ProductDescription: React.FC = () => {
             <div className="flex justify-center mt-8 space-x-4">
                 <div className="w-1/2 p-4 rounded-md">
                     <img
-                        src={products?.images.gallery[0]}
+                        src={currentProduct?.images.gallery[0]}
                         className="w-full rounded-md"
                     />
                 </div>
                 <div className="w-1/2 p-4 rounded-md">
                     <img
-                        src={products?.images.gallery[1]}
+                        src={currentProduct?.images.gallery[1]}
                         className="w-full rounded-md"
                     />
                 </div>

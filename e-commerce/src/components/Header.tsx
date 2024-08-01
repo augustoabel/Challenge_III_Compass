@@ -1,11 +1,17 @@
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react"
 import React, { useState } from 'react'
+import Modal from './Modal'
 import Logo from '../img/logo.png'
 import Cart from '../img/cart.png'
 import People from '../img/people.png'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -47,19 +53,26 @@ const Header = () => {
                             <li>
                                 <a href="/contact" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Contact</a>
                             </li>
-
                         </ul>
                     </div>
+
+                    {/* <div className="fixed top-0 right-0 w-80 bg-white shadow-lg h-full p-6 z-50">
+                        
+                    </div> */}
                     <div className={`w-full ${isMenuOpen ? 'block' : 'hidden'} md:flex md:w-auto md:order-1`} id="navbar-sticky">
                         <ul className="flex items-center justify-center flex-col p-4 md:p-0  font-medium  rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
                             <li className="">
-                                <img src={People} className="w-6" />
+                                <img src={People} className="w-6" alt="People Icon" />
                             </li>
                             <li className="py-2">
-                                <img src={Cart} className="w-6" />
+                                <button onClick={openModal} className="p-2 rounded">
+                                    <img src={Cart} className="w-6" />
+                                </button>
+                                <Modal isOpen={isModalOpen} onClose={closeModal} />
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </nav>
         </>

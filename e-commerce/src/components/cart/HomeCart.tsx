@@ -5,23 +5,11 @@ import cart from '../../img/img_shop/shop.png'
 import axios from 'axios';
 import Loading from '../Loading';
 
-interface ProductImages {
-    mainImage: string;
-    gallery: string[];
-}
-
-
 
 const Cart = () => {
     const { id } = useParams<{ id: string }>();
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-
-
-    // if (loading) {
-    //     return <Loading />;
-    // }
-
 
 
     return (
@@ -33,6 +21,7 @@ const Cart = () => {
                 backgroundPosition: 'center',
             }}
         >
+            
             <div className='flex flex-col justify-center items-center h-full'>
                 <span className='font-medium text-5xl text-black mb-4'>Cart</span>
                 <div>

@@ -20,8 +20,6 @@ const Shop = () => {
 
             <Quality />
 
-            
-
             <Footer />
         </>
     )

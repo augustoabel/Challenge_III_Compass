@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import { Product } from '../shop/ProductShop';
 import Loading from '../Loading';
+import share from '../../img/img_shop/share.png'
+import compare from '../../img/img_shop/compare.png'
+import like from '../../img/img_shop/like.png'
+import { useNavigate } from 'react-router-dom';
 
 const RelatedProducts: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([])
@@ -11,6 +15,7 @@ const RelatedProducts: React.FC = () => {
   const [tags, setTags] = useState([])
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,8 +58,13 @@ const RelatedProducts: React.FC = () => {
       tags.some(tag => product.tags.includes(tag))
     );
   };
- 
 
+  function singleProduct(product: number) {
+    const currentPath = window.location.pathname;
+    const newPath = currentPath.replace(/\/\d+$/, `/${product}`); 
+    navigate(newPath);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   if (loading) {
     return <Loading />;
@@ -77,7 +87,8 @@ const RelatedProducts: React.FC = () => {
                   backgroundPosition: 'center',
                 }}
               >
-                <div className='flex flex-row justify-end items-start w-full h-full'>
+
+                <div className='flex justify-end items-end absolute ms-48 top-1'>
                   {i.new == true &&
                     <div className="flex-row top-2 me-2 bg-[#2EC1AC] text-white text-xs font-bold rounded-full w-10 h-10 flex justify-center items-center">
                       New
@@ -85,6 +96,17 @@ const RelatedProducts: React.FC = () => {
                   }
                   <div className="top-2  bg-red-500 text-white text-xs font-semibold rounded-full w-10 h-10 flex justify-center items-center">
                     -{(i.discountPercentage * 100).toFixed(0)}%
+                  </div>
+                </div>
+                <div className="flex flex-col top-14 w-full h-full z-20 justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-black text-lg font-semibold">
+                  <button className='w-[200px] h-12 bg-white text-[#B88E2F]' onClick={() => singleProduct(i.id)}>Add to cart</button>
+                  <div className='flex flex-row mt-6'>
+                    <img className='w-4 h-4 me-2' src={share} />
+                    <span className='font-medium text-white me-3 text-sm '> Share</span>
+                    <img className='w-4 h-4 me-2' src={compare} />
+                    <span className='font-medium text-white me-3 text-sm'>Compare</span>
+                    <img className='w-4 h-4 me-2' src={like} />
+                    <span className='font-medium text-white me-3 text-sm'> Like</span>
                   </div>
                 </div>
               </div>

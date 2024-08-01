@@ -43,13 +43,12 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  height: 1px; /* Ajuste a espessura do sublinhado conforme necessário */
-  background: currentColor; /* Usa a cor atual do texto */
-  top: 50%; /* Posiciona no meio verticalmente */
+  height: 1px; 
+  background: currentColor; 
+  top: 50%; 
   transform: translateY(-50%);
 }
 
- /* Custom styling for the carousel */
  .carousel {
   display: flex;
   overflow-x: scroll;
@@ -58,4 +57,8 @@ body {
 .carousel-item {
   flex: none;
   scroll-snap-align: start;
+}
+
+#cod:checked, #bank:checked {
+ background-color: black;
 }

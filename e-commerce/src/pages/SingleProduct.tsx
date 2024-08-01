@@ -18,6 +18,7 @@ const SingleProduct = () => {
             <ProductDetails />
             <ProductDescription />
             <ProductRelated />
+            
             <Footer />
 
         </>
