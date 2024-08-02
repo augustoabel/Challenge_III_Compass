@@ -8,10 +8,6 @@ import { addToCart } from '../../redux/cartSlice';
 import Loading from '../Loading';
 import ProductRating from './ProductRating';
 
-import facebook from "../../img/img_shop/facebook-fill.png";
-import linkedin from "../../img/img_shop/linkedin-fill.png";
-import x from "../../img/img_shop/twitter-fill.png";
-
 const ProductDetails: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -147,9 +143,9 @@ const ProductDetails: React.FC = () => {
                         </div>
                         <span className='col-span-1'>: </span>
                         <div className='flex'>
-                            <img src={facebook} alt="" className='w-5 h-5 me-4' />
-                            <img src={linkedin} alt="" className='w-5 h-5 me-4' />
-                            <img src={x} alt="" className='w-5 h-5' />
+                            <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/facebook-fill.png" alt="Facebook" className='w-5 h-5 me-4' />
+                            <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/linkedin-fill.png" alt="Linkedin" className='w-5 h-5 me-4' />
+                            <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/twitter-fill.png" alt="X" className='w-5 h-5' />
                         </div>
                     </div>
                 </div>

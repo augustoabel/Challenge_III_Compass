@@ -1,11 +1,9 @@
-import shop from '../../img/img_shop/shop.png'
-
 const CheckoutHome = () => {
     return (
         <div className='w-screen h-full'>
             <div className='w-screen h-[350px]'
                 style={{
-                    backgroundImage: `url(${shop})`,
+                    backgroundImage: `url(https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/shop.png)`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}

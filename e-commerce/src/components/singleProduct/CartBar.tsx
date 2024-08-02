@@ -1,29 +1,31 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import Loading from '../Loading';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux';
+import { fetchProductById } from '../../redux/productSlice';
+
 const CartBar = () => {
     const { id } = useParams<{ id: string }>();
-    const [products, setProducts] = useState([]);
-    const [title, setTitle] = useState("");
-    const [loading, setLoading] = useState<boolean>(true);
+
+    const dispatch = useDispatch<AppDispatch>();
+    const { currentProduct, loading, error } = useSelector((state: RootState) => state.products);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:3000/products/${id}`);
-                // console.log(response.data)
-                setProducts(response.data);
-                setTitle(response.data.title);
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching data', error);
-                setLoading(false);
-            }
-        };
+        if (id) {
+            dispatch(fetchProductById(Number(id)));
+        }
+    }, [dispatch, id]);
 
-        fetchData();
-    }, []);
+    
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
+    if (!currentProduct) {
+        return <div>No product found</div>;
+    }
 
     if (loading) {
         return <Loading />;
@@ -35,7 +37,7 @@ const CartBar = () => {
                     <span className='ms-3 text-xl text-[#9F9F9F] me-3'>Home</span> {'>'}
                     <span className='ms-3 text-xl text-[#9F9F9F] me-3'>Shop</span> {'>'}
                     <div className='ms-4 h-9 w-[2px] bg-[#9F9F9F]'></div>
-                    <span className='ms-4 h-9 flex justify-center items-center text-base'>{title}</span>
+                    <span className='ms-4 h-9 flex justify-center items-center text-base'>{currentProduct.title}</span>
                 </div>
             </div>
         </div>

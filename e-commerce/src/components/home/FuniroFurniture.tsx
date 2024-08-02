@@ -1,6 +1,3 @@
-import React from 'react'
-import mosaicImage from '../../img/mosaic_images.png'
-
 const FuniroFurniture = () => {
     return (
         <div className='container h-full'>
@@ -10,7 +7,7 @@ const FuniroFurniture = () => {
 
                 <div className="background-image w-screen h-screen"
                     style={{
-                        backgroundImage: `url(${mosaicImage})`,
+                        backgroundImage: `url(https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/mosaic_images.png)`,
                         backgroundSize: 'cover',
                     }}>
                 </div>

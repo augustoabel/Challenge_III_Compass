@@ -9,9 +9,9 @@ import Loading from '../Loading';
 const ProductDescription: React.FC = () => {
     const [activeTab, setActiveTab] = useState('description');
     const { id } = useParams<{ id: string }>();
+    const { currentProduct, loading } = useSelector((state: RootState) => state.products);
 
     const dispatch = useDispatch<AppDispatch>();
-    const { currentProduct, loading } = useSelector((state: RootState) => state.products);
     useEffect(() => {
         if (id) {
             dispatch(fetchProductById(Number(id)));

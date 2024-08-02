@@ -32,7 +32,7 @@ const CheckoutForm: React.FC = () => {
 
     const [loadingCep, setLoadingCep] = useState(false);
 
-    const onSubmit = (data: FormData) => {
+    const onSubmit = () => {
         navigate('/')
     };
 

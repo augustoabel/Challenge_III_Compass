@@ -1,74 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import Loading from '../Loading';
-import share from '../../img/img_shop/share.png'
-import compare from '../../img/img_shop/compare.png'
-import like from '../../img/img_shop/like.png'
 
-interface Description {
-    short: string;
-    long: string;
-}
-
-interface Color {
-    name: string;
-    hex: string;
-}
-
-interface Images {
-    mainImage: string;
-    gallery: string[];
-}
-
-interface Product {
-    id: number;
-    sku: string;
-    title: string;
-    category: string;
-    tags: string[];
-    normalPrice: number;
-    salePrice: number;
-    discountPercentage: number;
-    new: boolean;
-    description: Description;
-    colors: Color[];
-    sizes: string[];
-    rating: number;
-    images: Images;
-}
-
-
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux';
+import { fetchProducts } from '../../redux/productSlice';
 
 const OurProducts = () => {
-    const [products, setProducts] = useState<Product[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
     const navigate = useNavigate()
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/products');
-                console.log(response.data)
-                setProducts(response.data);
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching data', error);
-                setLoading(false);
-            }
-        };
+    const dispatch = useDispatch<AppDispatch>();
+    const { items, status } = useSelector((state: RootState) => state.products);
 
-        fetchData();
-    }, []);
+    useEffect(() => {
+        dispatch(fetchProducts());
+    }, [dispatch]);
+
+    if (status === 'loading') {
+        return <Loading />;
+    }
 
     function singleProduct(product: number) {
-        console.log('chamou', product)
         navigate(`shop/singleProduct/${product}`);
     }
 
-    if (loading) {
-        return <Loading />;
-    }
 
     return (
         <div className="container mx-auto h-full mt-12">
@@ -76,7 +31,7 @@ const OurProducts = () => {
                 <span className='text-[#333333] text-4xl font-bold mb-5'>Our Products</span>
 
                 <div className='grid grid-cols-12 container mx-auto'>
-                    {products.slice(30, 38).map((i, index) => (
+                    {items.slice(30, 38).map((i) => (
                         <div className="col-span-3 flex justify-start items-center h-[480px] w-[290px] mx-2 my-2 flex-col bg-[#F4F5F7]" key={i.id}>
 
                         <div className='h-[480px] w-[290px]'
@@ -99,11 +54,11 @@ const OurProducts = () => {
                             <div className="flex flex-col top-14 w-full h-full z-20 justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-black text-lg font-semibold">
                                 <button className='w-[200px] h-12 bg-white text-[#B88E2F]' onClick={() => singleProduct(i.id)}>Add to cart</button>
                                 <div className='flex flex-row mt-6'>
-                                    <img className='w-4 h-4 me-2' src={share} />
+                                    <img className='w-4 h-4 me-2' src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/share.png" />
                                     <span className='font-medium text-white me-3 text-sm '> Share</span>
-                                    <img className='w-4 h-4 me-2' src={compare} />
+                                    <img className='w-4 h-4 me-2' src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/compare.png" />
                                     <span className='font-medium text-white me-3 text-sm'>Compare</span>
-                                    <img className='w-4 h-4 me-2' src={like} />
+                                    <img className='w-4 h-4 me-2' src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/like.png" />
                                     <span className='font-medium text-white me-3 text-sm'> Like</span>
                                 </div>
                             </div>
@@ -126,7 +81,9 @@ const OurProducts = () => {
 
 
                     <div className='col-span-12 mx-auto mt-8'>
-                        <a href="http://localhost:5173/shop" className='text-[#B88E2F] bg-white border border-[#B88E2F] px-20 py-2 mt-8'>Show More</a>
+                        <button className='text-[#B88E2F] bg-white border border-[#B88E2F] px-20 py-2 mt-8' onClick={() => navigate('/shop')}>
+                            Show More
+                        </button>
                     </div>
                 </div>
             </div>

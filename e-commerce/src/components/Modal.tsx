@@ -1,10 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../redux';
+import { RootState } from '../redux';
 import { removeFromCart } from '../redux/cartSlice'; 
 import { useNavigate } from 'react-router-dom';
-import CartClose from '../img/cartClose.png'
-import deleteProduct from '../img/deleteProduct.png'
 
 interface ModalProps {
     isOpen: boolean;
@@ -34,12 +32,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                 <div className='flex flex-row justify-between items-center col-span-12'>
                     <h2 className="text-xl font-semibold">Shopping Cart</h2>
                     <button onClick={onClose}>
-                        <img src={CartClose} alt="" />
+                        <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/cartClose.png'" alt="" />
                     </button>
                 </div>
                 {cartItems.length < 1 ? <span className='text-center'>Cart empty</span> : (
                     <div className="space-y-4 border-t mt-10 pt-10 grid col-span-12">
-                        {cartItems.map((i, index) => (
+                        {cartItems.map((i) => (
                             <div className="flex items-center space-x-4">
                                 <img src={i.product.images.mainImage} alt="Product 1" className="w-16 h-16 object-cover rounded" />
                                 <div>
@@ -47,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                                 </div>
                                 <p className="ml-auto text-[#B88E2F]">{i.quantity} x Rs. {i.product.normalPrice}</p>
                                 <button onClick={() => handleDelete(i.product.id)}>
-                                    <img src={deleteProduct} alt="" />
+                                    <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/deleteProduct.png" alt="" />
                                 </button>
                             </div>
                         ))}

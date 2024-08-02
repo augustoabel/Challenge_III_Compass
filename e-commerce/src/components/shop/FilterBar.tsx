@@ -1,6 +1,3 @@
-import filter from '../../img/img_shop/filter.png'
-import grid from '../../img/img_shop/grid.png'
-import view_list from '../../img/img_shop/view-list.png'
 import ProductShop from './ProductShop'
 
 const FilterBar = () => {
@@ -8,11 +5,11 @@ const FilterBar = () => {
         <div className='h-[100px] w-full bg-[#F9F1E7] mb-0'>
             <div className='flex flex-row h-full w-full'>
                 <div className='flex justify-start items-center'>
-                    <img src={filter} alt="Icon Filter" className='ms-20' />
+                    <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/filter.png" alt="Icon Filter" className='ms-20' />
                     <span className='ms-3 text-xl'>Filter</span>
 
-                    <img src={grid} className='ms-6' alt="Grid Buttons" />
-                    <img src={view_list} className='ms-6' alt="View List" />
+                    <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/grid.png" className='ms-6' alt="Grid Buttons" />
+                    <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/view-list.png" className='ms-6' alt="View List" />
 
                     <div className='bg-[#9F9F9F] h-9 w-[2px] ms-8'></div>
 

@@ -4,8 +4,7 @@ import { auth } from "../services/firebaseConfig";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/userSlice';
-import Logo from '../img/logo.png';
-import img1 from '../img/img1.png';
+
 import Loading from "../components/Loading";
 import { z } from 'zod';
 
@@ -75,13 +74,13 @@ const Login = () => {
                     </div>
 
                     <div className="col-span-6 sm:col-span-6 h-screen flex flex-col justify-center items-start">
-                        <img src={Logo} alt="Logo" className='w-12' />
+                        <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/logo.png" alt="Logo" className='w-12' />
                     </div>
                 </div>
 
                 <div className='col-span-6 flex justify-center items-center'
                     style={{
-                        backgroundImage: `url(${img1})`,
+                        backgroundImage: `url (https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img1.png)`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                     }}

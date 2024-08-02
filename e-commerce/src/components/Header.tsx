@@ -1,9 +1,5 @@
-import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react"
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Modal from './Modal'
-import Logo from '../img/logo.png'
-import Cart from '../img/cart.png'
-import People from '../img/people.png'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +18,7 @@ const Header = () => {
             <nav className="bg-white w-screen z-20 top-0 start-0">
                 <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <div className="flex">
-                        <img src={Logo} className="mr-3 h-6 sm:h-9" alt="Logo" />
+                        <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/logo.png" className="mr-3 h-6 sm:h-9" alt="Logo" />
                         <span className="self-center xl:text-4xl md:text-xl font-bold whitespace-nowrap">Furniro</span>
                     </div>
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -62,11 +58,11 @@ const Header = () => {
                     <div className={`w-full ${isMenuOpen ? 'block' : 'hidden'} md:flex md:w-auto md:order-1`} id="navbar-sticky">
                         <ul className="flex items-center justify-center flex-col p-4 md:p-0  font-medium  rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
                             <li className="">
-                                <img src={People} className="w-6" alt="People Icon" />
+                                <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/people.png" className="w-6" alt="People Icon" />
                             </li>
                             <li className="py-2">
                                 <button onClick={openModal} className="p-2 rounded">
-                                    <img src={Cart} className="w-6" />
+                                    <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/cart.png" className="w-6" />
                                 </button>
                                 <Modal isOpen={isModalOpen} onClose={closeModal} />
                             </li>

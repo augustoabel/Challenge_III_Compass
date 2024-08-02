@@ -3,22 +3,20 @@ import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import facebook from '../img/facebook.png'
-import instagram from '../img/instagram.png'
-import x from '../img/x.png'
-import linkedin from '../img/linkedin.png'
 
 const schema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
 });
 
+type FormData = z.infer<typeof schema>;
+
 const Footer: React.FC = () => {
   const navigate = useNavigate()
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = () => {
     navigate('/')
   };
 
@@ -34,16 +32,16 @@ const Footer: React.FC = () => {
           <div></div>
           <div className="flex flex-row xl:gap-4 sm:gap-1">
             <div>
-              <div className='w-9 h-9 rounded-full border border-black flex justify-center items-center'><img src={facebook} alt="Logo Facebook" /></div>
+              <div className='w-9 h-9 rounded-full border border-black flex justify-center items-center'><img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/facebook.png" alt="Logo Facebook" /></div>
             </div>
             <div>
-              <div className='w-9 h-9 rounded-full border border-black flex justify-center items-center'><img src={instagram} alt="Logo Facebook" /></div>
+              <div className='w-9 h-9 rounded-full border border-black flex justify-center items-center'><img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/instagram.png" alt="Logo Instagram" /></div>
             </div>
             <div>
-              <div className='w-9 h-9 rounded-full border border-black flex justify-center items-center'><img src={x} alt="Logo Facebook" /></div>
+              <div className='w-9 h-9 rounded-full border border-black flex justify-center items-center'><img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/x.png" alt="Logo X" /></div>
             </div>
             <div>
-              <div className='w-9 h-9 rounded-full border border-black flex justify-center items-center'><img src={linkedin} alt="Logo Facebook" /></div>
+              <div className='w-9 h-9 rounded-full border border-black flex justify-center items-center'><img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/linkedin.png" alt="Logo Linkedin" /></div>
             </div>
 
           </div>

@@ -1,6 +1,4 @@
-import React from 'react';
 import Header from '../components/Header';
-import img1 from '../img/img1.png';
 import Footer from '../components/Footer';
 import BrowserRange from '../components/home/BrowserRange';
 import OurProducts from '../components/home/OurProducts';
@@ -15,7 +13,7 @@ const Home = () => {
       <div
         className="background-image"
         style={{
-          backgroundImage: `url(${img1})`,
+          backgroundImage: 'url(https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img1.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '100vh',

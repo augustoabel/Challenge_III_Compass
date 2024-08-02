@@ -3,10 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading';
 
-import share from '../../img/img_shop/share.png'
-import compare from '../../img/img_shop/compare.png'
-import like from '../../img/img_shop/like.png'
-
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux';
 import { fetchProducts, fetchProductById } from '../../redux/productSlice';
@@ -14,8 +10,8 @@ import { fetchProducts, fetchProductById } from '../../redux/productSlice';
 const RelatedProducts: React.FC = () => {
   const navigate = useNavigate()
   const [visibleProducts, setVisibleProducts] = useState(4);
-  const [tags, setTags] = useState([])
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [tags, setTags] = useState([''])
+  const [filteredProducts, setFilteredProducts] = useState<any>([]);
   const { id } = useParams<{ id: string }>();
 
   const dispatch = useDispatch<AppDispatch>();
@@ -67,7 +63,7 @@ const RelatedProducts: React.FC = () => {
         <span className='text-[#333333] text-4xl font-bold mb-5'>Related Products</span>
 
         <div className='grid grid-cols-12 container mx-auto'>
-          {filteredProducts.slice(0, visibleProducts).map((i, index) => (
+          {filteredProducts.slice(0, visibleProducts).map((i: any) => (
             <div className="col-span-3 flex justify-start items-center  mx-2 my-2 flex-col bg-[#F4F5F7]" key={i.id}>
               <div
                 className="background-image w-full h-80"
@@ -91,11 +87,11 @@ const RelatedProducts: React.FC = () => {
                 <div className="flex flex-col top-14 w-full h-full z-20 justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-black text-lg font-semibold">
                   <button className='w-[200px] h-12 bg-white text-[#B88E2F]' onClick={() => singleProduct(i.id)}>Add to cart</button>
                   <div className='flex flex-row mt-6'>
-                    <img className='w-4 h-4 me-2' src={share} />
+                    <img className='w-4 h-4 me-2' src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/share.png" />
                     <span className='font-medium text-white me-3 text-sm '> Share</span>
-                    <img className='w-4 h-4 me-2' src={compare} />
+                    <img className='w-4 h-4 me-2' src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/compare.png" />
                     <span className='font-medium text-white me-3 text-sm'>Compare</span>
-                    <img className='w-4 h-4 me-2' src={like} />
+                    <img className='w-4 h-4 me-2' src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/like.png" />
                     <span className='font-medium text-white me-3 text-sm'> Like</span>
                   </div>
                 </div>

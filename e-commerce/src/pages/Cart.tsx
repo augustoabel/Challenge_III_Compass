@@ -4,8 +4,6 @@ import HomeCart from '../components/cart/HomeCart'
 import DetailsCart from '../components/cart/DetailsCart'
 import Quality from '../components/shop/Quality'
 
-
-
 const Cart = () => {
     return (
         <>

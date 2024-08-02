@@ -1,5 +1,3 @@
-import React from 'react';
-import dump from '../../img/img_cart/dump.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../redux';
@@ -65,7 +63,7 @@ const DetailsCart = () => {
                                     <td className="py-4 px-4 border-b">Rs. {i.product.normalPrice * i.quantity}</td>
                                     <td className="py-4 px-4 border-b">
                                         <button className="text-black hover:text-red-500" onClick={() => handleDelete(i.product.id)}>
-                                            <img src={dump} alt="Remove" />
+                                            <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_cart/dump.png" alt="Remove" />
                                         </button>
                                     </td>
                                 </tr>

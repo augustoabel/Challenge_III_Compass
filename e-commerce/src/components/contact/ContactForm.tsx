@@ -3,9 +3,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
 import * as z from 'zod';
-import timer from '../../img/img_contact/timer.png';
-import fone from '../../img/img_contact/fone.png';
-import point from '../../img/img_contact/point.png';
 
 const schema = z.object({
     name: z.string().min(1, { message: "Name is required" }),
@@ -23,7 +20,7 @@ const ContactForm: React.FC = () => {
         resolver: zodResolver(schema),
     });
 
-    const onSubmit = (data: FormData) => {
+    const onSubmit = () => {
         navigate('/')
     };
 
@@ -39,21 +36,21 @@ const ContactForm: React.FC = () => {
                 <div className="lg:w-1/3 mb-8 lg:mb-0">
                     <div className="mb-8 w-1/2">
                         <h2 className="flex items-center text-lg font-semibold mb-2">
-                            <img src={point} alt="Point" className='me-2'/>
+                            <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_contact/point.png" alt="Point" className='me-2'/>
                             Address
                         </h2>
                         <p className='ms-8'>236 5th SE Avenue, New York NY10000, United States</p>
                     </div>
                     <div className="mb-8">
                         <h2 className="flex items-center text-lg font-semibold mb-2">
-                            <img src={fone} alt="Fone" className='me-2' />
+                            <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_contact/fone.png" alt="Fone" className='me-2' />
                             Phone
                         </h2>
                         <p className='ms-8'>Mobile: (+84) 145 6789<br />Hotline: (+84) 145 6789</p>
                     </div>
                     <div>
                         <h2 className="flex items-center text-lg font-semibold mb-2">
-                            <img src={timer} alt="Timer" className='me-2'/>
+                            <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_contact/timer.png" alt="Timer" className='me-2'/>
                             Working Time
                         </h2>
                         <p className='ms-8'>Monday-Friday: 9:00 - 22:00<br />Saturday-Sunday: 9:00 - 21:00</p>
