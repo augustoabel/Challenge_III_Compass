@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Modal from './Modal'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,23 +39,20 @@ const Header = () => {
                     <div className={`w-full ${isMenuOpen ? 'block' : 'hidden'} md:flex md:w-auto md:order-1`} id="navbar-sticky">
                         <ul className="flex items-center justify-between flex-col p-4 md:p-0 mt-4 xl:gap-20 font-medium rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
                             <li>
-                                <a href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0" >Home</a>
+                                <Link className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0" to="/">Home</Link>
                             </li>
                             <li>
-                                <a href="/shop" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Shop</a>
+                                <Link className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0" to="/shop">Shop</Link>
                             </li>
                             <li>
-                                <a href="/about" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">About</a>
+                                <Link className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0" to="/about">About</Link>
                             </li>
                             <li>
-                                <a href="/contact" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Contact</a>
+                                <Link className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0" to="/contact">Contact</Link>
                             </li>
                         </ul>
                     </div>
 
-                    {/* <div className="fixed top-0 right-0 w-80 bg-white shadow-lg h-full p-6 z-50">
-                        
-                    </div> */}
                     <div className={`w-full ${isMenuOpen ? 'block' : 'hidden'} md:flex md:w-auto md:order-1`} id="navbar-sticky">
                         <ul className="flex items-center justify-center flex-col p-4 md:p-0  font-medium  rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
                             <li className="">
