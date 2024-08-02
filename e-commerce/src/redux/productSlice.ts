@@ -56,7 +56,7 @@ const initialState: ProductsState = {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    const response = await axios.get("http://localhost:3000/products");
+    const response = await axios.get("http://54.94.110.2:3000/products");
     return response.data as Product[];
   }
 );
@@ -64,7 +64,7 @@ export const fetchProducts = createAsyncThunk(
 export const fetchProductById = createAsyncThunk(
   "products/fetchProductById",
   async (id: number) => {
-    const response = await axios.get(`http://localhost:3000/products/${id}`);
+    const response = await axios.get(`http://54.94.110.2:3000/products/${id}`);
     return response.data;
   }
 );

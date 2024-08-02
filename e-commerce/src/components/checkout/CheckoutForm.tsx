@@ -18,6 +18,7 @@ const schema = z.object({
     province: z.string().min(1, { message: "Province is required" }),
     addOnAddress: z.string().optional(),
     email: z.string().email({ message: "Invalid email address" }),
+    payment: z.enum(['bank', 'cod'], { message: 'Payment method is required', }),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -32,7 +33,7 @@ const CheckoutForm: React.FC = () => {
     const [loadingCep, setLoadingCep] = useState(false);
 
     const onSubmit = (data: FormData) => {
-        console.log(data);
+        navigate('/')
     };
 
     const handleCepBlur = async (e: React.FocusEvent<HTMLInputElement>) => {
@@ -191,24 +192,37 @@ const CheckoutForm: React.FC = () => {
                         <div className='bg-[#D9D9D9] w-full h-[1px] my-10'></div>
 
                         <div className="mb-4">
+                            {errors.payment && <p className="text-red-500">{errors.payment.message}</p>}
                             <div>
-                                <input type="radio" id="bank" name="payment" className="mr-2 peer" />
+                                <input
+                                    type="radio"
+                                    id="bank"
+                                    value="bank"
+                                    {...register('payment')}
+                                    className="mr-2 peer"
+                                />
                                 <label htmlFor="bank">Direct Bank Transfer</label>
                                 <p className="text-sm mb-4 mt-2 peer-checked:text-[#9F9F9F]">
                                     Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
                                 </p>
                             </div>
                             <div>
-                                <input type="radio" id="cod" name="payment" className="mr-2 peer" />
+                                <input
+                                    type="radio"
+                                    id="cod"
+                                    value="cod"
+                                    {...register('payment')}
+                                    className="mr-2 peer"
+                                />
                                 <label htmlFor="cod" className=''>Cash On Delivery</label>
                             </div>
-                            <p className="text-sm mb-4 mt-10 ">
-                                Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="#" className="text-black">privacy policy</a>.
-                            </p>
                         </div>
+                        <p className="text-sm mb-4 mt-10">
+                            Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="#" className="text-black">privacy policy</a>.
+                        </p>
 
                         <div className='flex justify-center mt-14'>
-                            <button className="bg-white text-black p-4 w-1/2 rounded-xl border border-black" onClick={() => navigate('/')}>Place order</button>
+                            <button type='submit' className="bg-white text-black p-4 w-1/2 rounded-xl border border-black">Place order</button>
                         </div>
                     </div>
                 </div>

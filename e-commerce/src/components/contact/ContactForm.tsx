@@ -24,7 +24,6 @@ const ContactForm: React.FC = () => {
     });
 
     const onSubmit = (data: FormData) => {
-        console.log(data);
         navigate('/')
     };
 

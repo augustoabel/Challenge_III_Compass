@@ -1,10 +1,27 @@
 import React from 'react'
+import * as z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import facebook from '../img/facebook.png'
 import instagram from '../img/instagram.png'
 import x from '../img/x.png'
 import linkedin from '../img/linkedin.png'
 
-const Footer = () => {
+const schema = z.object({
+  email: z.string().email({ message: "Invalid email address" }),
+});
+
+const Footer: React.FC = () => {
+  const navigate = useNavigate()
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data: FormData) => {
+    navigate('/')
+  };
+
   return (
     <div className='container mx-auto bg-white w-screen z-20 h-[500px] '>
       <div className='grid grid-cols-12 mt-10 xl:ms-[100px]'>
@@ -49,11 +66,19 @@ const Footer = () => {
 
         <div className='col-span-4 flex flex-col gap-12'>
           <span className='text-[#9F9F9F]'>Newsletter</span>
-          <div>
-
-            <span className='underline me-2 text-[#9F9F9F]'>Enter Your Email Address </span>
-            <span className='underline'>SUBSCRIBE</span>
-          </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className=''>
+              <label className="block text-gray-700 mb-6 mt-8 font-medium">Email address</label>
+              <input
+                {...register('email')}
+                type="email"
+                className="border-none rounded-lg p-2 h-16 underline ms-0 ps-0"
+                placeholder='Enter Your Email Address'
+              />
+            </div>
+            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+            <button type='submit' className=' text-start align-text-top underline'>SUBSCRIBE</button>
+          </form>
         </div>
 
         <div className='col-span-12 border border-[#D9D9D9] mt-12'></div>

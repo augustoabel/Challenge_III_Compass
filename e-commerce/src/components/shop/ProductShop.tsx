@@ -13,7 +13,7 @@ const ProductShop: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
     const { items, currentPage, totalPages, status } = useSelector((state: RootState) => state.products);
-    
+
     useEffect(() => {
         dispatch(fetchProducts());
     }, [dispatch]);
@@ -46,34 +46,33 @@ const ProductShop: React.FC = () => {
                     {currentProducts.map((i) => (
                         <div className="col-span-3 flex justify-start items-center h-[480px] w-[290px] mx-2 my-2 flex-col bg-[#F4F5F7]" key={i.id}>
                             <div
-                                className="h-[480px] w-[290px]"
+                                className="background-image w-full h-80"
                                 style={{
                                     backgroundImage: `url(${i.images.mainImage})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
                                 }}
                             >
-                                <div className="flex flex-row justify-end items-end">
-                                    {i.new && (
+
+                                <div className='flex justify-end items-end absolute ms-48 top-1'>
+                                    {i.new == true &&
                                         <div className="flex-row top-2 me-2 bg-[#2EC1AC] text-white text-xs font-bold rounded-full w-10 h-10 flex justify-center items-center">
                                             New
                                         </div>
-                                    )}
-                                    <div className="top-2 bg-red-500 text-white text-xs font-semibold rounded-full w-10 h-10 flex justify-center items-center">
+                                    }
+                                    <div className="top-2  bg-red-500 text-white text-xs font-semibold rounded-full w-10 h-10 flex justify-center items-center">
                                         -{(i.discountPercentage * 100).toFixed(0)}%
                                     </div>
                                 </div>
-                                <div className="flex flex-col top-14 w-full h-[88%] z-20 justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-black text-lg font-semibold">
-                                    <button className="w-[200px] h-12 bg-white text-[#B88E2F]" onClick={() => singleProduct(i.id)}>
-                                        Add to cart
-                                    </button>
-                                    <div className="flex flex-row mt-6">
-                                        <img className="w-4 h-4 me-2" src={share} alt="Share" />
-                                        <span className="font-medium text-white me-3 text-sm"> Share</span>
-                                        <img className="w-4 h-4 me-2" src={compare} alt="Compare" />
-                                        <span className="font-medium text-white me-3 text-sm">Compare</span>
-                                        <img className="w-4 h-4 me-2" src={like} alt="Like" />
-                                        <span className="font-medium text-white me-3 text-sm"> Like</span>
+                                <div className="flex flex-col top-14 w-full h-full z-20 justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-black text-lg font-semibold">
+                                    <button className='w-[200px] h-12 bg-white text-[#B88E2F]' onClick={() => singleProduct(i.id)}>Add to cart</button>
+                                    <div className='flex flex-row mt-6'>
+                                        <img className='w-4 h-4 me-2' src={share} />
+                                        <span className='font-medium text-white me-3 text-sm '> Share</span>
+                                        <img className='w-4 h-4 me-2' src={compare} />
+                                        <span className='font-medium text-white me-3 text-sm'>Compare</span>
+                                        <img className='w-4 h-4 me-2' src={like} />
+                                        <span className='font-medium text-white me-3 text-sm'> Like</span>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +91,7 @@ const ProductShop: React.FC = () => {
                 <div className='mt-16 mb-20'>
                     <button
                         className={`border-none mx-9 rounded-md w-[60px] h-[60px] ${currentPage === 1 ? 'bg-[#B88E2F] text-white' : 'bg-[#F9F1E7] text-black'}`}
-                        onClick={() => handlePageChange(1)} 
+                        onClick={() => handlePageChange(1)}
                     >
                         1
                     </button>

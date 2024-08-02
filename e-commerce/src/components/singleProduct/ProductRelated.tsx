@@ -1,72 +1,62 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios'
-import { Product } from '../shop/ProductShop';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading';
+
 import share from '../../img/img_shop/share.png'
 import compare from '../../img/img_shop/compare.png'
 import like from '../../img/img_shop/like.png'
-import { useNavigate } from 'react-router-dom';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux';
+import { fetchProducts, fetchProductById } from '../../redux/productSlice';
 
 const RelatedProducts: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([])
-  const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate()
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [tags, setTags] = useState([])
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate()
+
+  const dispatch = useDispatch<AppDispatch>();
+  const { items, status, currentProduct } = useSelector((state: RootState) => state.products);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3000/products/`);
-        setProducts(response.data);
-      } catch (error) {
-        console.error('Error fetching data', error);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const selectProduct = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3000/products/${id}`);
-        setTags(response.data.tags);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching data', error);
-      }
-    };
-
     if (id) {
-      selectProduct();
+      dispatch(fetchProductById(Number(id)));
     }
-  }, [id]);
+    dispatch(fetchProducts());
+  }, [dispatch, id]);
 
   useEffect(() => {
-    if (tags.length > 0 && products.length > 0) {
+    if (currentProduct) {
+      setTags(currentProduct.tags);
+    }
+  }, [currentProduct]);
+
+
+  useEffect(() => {
+    if (tags.length > 0 && items.length > 0) {
       setFilteredProducts(filterProductsByTags(tags));
     }
-  }, [tags, products]);
+  }, [tags, items]);
 
-  const filterProductsByTags = (tags: string[]): Product[] => {
-    return products.filter(product =>
+ 
+
+  const filterProductsByTags = (tags: string[]) => {
+    return items.filter(product =>
       tags.some(tag => product.tags.includes(tag))
     );
   };
 
   function singleProduct(product: number) {
     const currentPath = window.location.pathname;
-    const newPath = currentPath.replace(/\/\d+$/, `/${product}`); 
+    const newPath = currentPath.replace(/\/\d+$/, `/${product}`);
     navigate(newPath);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  if (loading) {
+  if (status === 'loading') {
     return <Loading />;
   }
 
