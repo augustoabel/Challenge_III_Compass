@@ -19,17 +19,17 @@ const Home = () => {
           height: '100vh',
         }}
       >
-        <div className="overlay rounded-lg sm:mx-4 lg:ml-[740px] lg:mt-[100px] xl:w-[640px] xl:h-[440px] lg:w-[640px] lg:h-[440px] md:w-[400px] md:h-[450px]">
+        <div className="overlay rounded-lg sm:mx-4 lg:ml-[740px] lg:mt-[100px] xl:w-[640px] xl:h-[440px] lg:w-[640px] lg:h-[440px] md:w-[400px] md:h-[450px] h-2/4 w-2/4">
           <div className='justify-start flex items-start'>
-            <span className='text-[#333333] tracking-widest mt-[60px] font-bold md:text-xl'>New Arrival</span>
+            <span className='text-[#333333] tracking-widest mt-[60px] font-bold text-xl'>New Arrival</span>
           </div>
 
           <div className='justify-start flex items-start w-[70%]'>
-            <span className='font-extrabold text-5xl text-[#B88E2F] text-start leading-tight'>Discover Our New Collection</span>
+            <span className='font-extrabold md:text-5xl text-sm text-[#B88E2F] text-start leading-6 mt-2'>Discover Our New Collection</span>
           </div>
 
           <div className='justify-start flex items-start mt-3'>
-            <span className='text-[#333333] text-start text-base'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</span>
+            <span className='text-[#333333] text-start md:text-base text-'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</span>
           </div>
 
           <div className='justify-start flex items-start mt-10'>

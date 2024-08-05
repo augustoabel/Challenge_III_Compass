@@ -1,6 +1,6 @@
 const BrowserRange = () => {
     return (
-        <div className="container mx-auto h-screen mt-12">
+        <div className="container mx-auto h-auto mt-12 mb-12">
             <div className='flex justify-center items-center flex-col'>
                 <span className='text-[#333333] text-4xl font-bold mb-5'>Browse The Range</span>
                 <span className='text-[#666666] text-xl font-thin mb-16'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>

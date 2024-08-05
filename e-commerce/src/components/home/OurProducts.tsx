@@ -26,13 +26,13 @@ const OurProducts = () => {
 
 
     return (
-        <div className="container mx-auto h-full mt-12">
+        <div className="container mx-auto h-auto mt-48 w-screen">
             <div className='flex justify-center items-center flex-col'>
                 <span className='text-[#333333] text-4xl font-bold mb-5'>Our Products</span>
 
-                <div className='grid grid-cols-12 container mx-auto'>
+                <div className='grid grid-cols-12 container justify-center'>
                     {items.slice(30, 38).map((i) => (
-                        <div className="col-span-3 flex justify-start items-center h-[480px] w-[290px] mx-2 my-2 flex-col bg-[#F4F5F7]" key={i.id}>
+                        <div className="xl:col-span-3 lg:col-span-4 col-start-3 sm:col-span-6 md:col-span-6 col-span-8 flex justify-center items-center h-[480px] w-[290px] mx-2 my-2 flex-col bg-[#F4F5F7]" key={i.id}>
 
                         <div className='h-[480px] w-[290px]'
                             style={{
@@ -51,7 +51,7 @@ const OurProducts = () => {
                                     -{(i.discountPercentage * 100).toFixed(0)}%
                                 </div>
                             </div>
-                            <div className="flex flex-col top-14 w-full h-full z-20 justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-black text-lg font-semibold">
+                            <div className="flex flex-col top-14 w-full h-auto z-20 justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-black text-lg font-semibold">
                                 <button className='w-[200px] h-12 bg-white text-[#B88E2F]' onClick={() => singleProduct(i.id)}>Add to cart</button>
                                 <div className='flex flex-row mt-6'>
                                     <img className='w-4 h-4 me-2' src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/share.png" />
