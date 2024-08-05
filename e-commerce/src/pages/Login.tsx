@@ -80,7 +80,7 @@ const Login = () => {
 
                 <div className='col-span-6 flex justify-center items-center'
                     style={{
-                        backgroundImage: `url (https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img1.png)`,
+                        backgroundImage: `url(https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img1.png)`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                     }}

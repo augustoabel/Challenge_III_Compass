@@ -31,7 +31,7 @@ const DetailsCart = () => {
 
     return (
         <div className="grid grid-cols-12 justify-between p-4 mt-20">
-            <div className="col-span-8">
+            <div className="md:col-span-8 col-span-12">
                 <table className="mx-auto bg-white">
                     <thead>
                         <tr className="bg-[#F9F1E7] border-none">
@@ -47,7 +47,7 @@ const DetailsCart = () => {
                             cartItems.map((i) => (
                                 <tr key={i.product.id} className="bg-white">
                                     <td className="flex items-center py-4 px-4 border-b mt-5">
-                                        <div className="w-20 h-20 bg-gray-100 mr-4">
+                                        <div className="w-20 h-20  mr-4">
                                             <img src={i.product.images.mainImage} alt="" />
                                         </div>
                                         <span>{i.product.title}</span>
@@ -61,7 +61,7 @@ const DetailsCart = () => {
                                         </div>
                                     </td>
                                     <td className="py-4 px-4 border-b">Rs. {i.product.normalPrice * i.quantity}</td>
-                                    <td className="py-4 px-4 border-b">
+                                    <td className="md:py-4 md:px-4 py-1 px-1 border-b">
                                         <button className="text-black hover:text-red-500" onClick={() => handleDelete(i.product.id)}>
                                             <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_cart/dump.png" alt="Remove" />
                                         </button>
@@ -74,7 +74,7 @@ const DetailsCart = () => {
                 </table>
             </div>
 
-            <div className="col-span-4 me-20 h-[390px] bg-[#F9F1E7] p-4 rounded px-20 mb-10">
+            <div className="md:col-span-4 col-span-12 md:mt-0 mt-5 mx-auto me-20 h-[390px] bg-[#F9F1E7] p-4 rounded px-20 mb-10">
                 <h2 className="text-3xl font-semibold mb-4 text-center">Cart Totals</h2>
                 <div className="flex justify-between mb-6 mt-12">
                     <span>Subtotal</span>

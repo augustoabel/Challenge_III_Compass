@@ -2,9 +2,9 @@ import ProductShop from './ProductShop'
 
 const FilterBar = () => {
     return (
-        <div className='h-[100px] w-full bg-[#F9F1E7] mb-0'>
-            <div className='flex flex-row h-full w-full'>
-                <div className='flex justify-start items-center'>
+        <div className='sm:h-[100px] w-full bg-[#F9F1E7] mb-0 h-[200px]'>
+            <div className='flex xl:flex-row xl:flex-nowrap h-full w-auto flex-wrap md:mb-3 '>
+                <div className='flex justify-start items-center md:flex-nowrap flex-wrap'>
                     <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/filter.png" alt="Icon Filter" className='ms-20' />
                     <span className='ms-3 text-xl'>Filter</span>
 

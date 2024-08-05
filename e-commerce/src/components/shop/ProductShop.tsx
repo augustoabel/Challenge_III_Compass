@@ -40,7 +40,7 @@ const ProductShop: React.FC = () => {
             <div className="flex justify-center items-center flex-col">
                 <div className="grid grid-cols-12 container mx-auto">
                     {currentProducts.map((i) => (
-                        <div className="col-span-3 flex justify-start items-center h-[480px] w-[290px] mx-2 my-2 flex-col bg-[#F4F5F7]" key={i.id}>
+                        <div className="xl:col-span-3 lg:col-span-4 col-start-3 sm:col-span-6 md:col-span-6 col-span-8 flex justify-center items-center h-[480px] w-[290px] mx-2 my-2 flex-col bg-[#F4F5F7]" key={i.id}>
                             <div
                                 className="background-image w-full h-80"
                                 style={{

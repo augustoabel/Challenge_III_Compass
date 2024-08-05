@@ -51,7 +51,7 @@ const OurProducts = () => {
                                     -{(i.discountPercentage * 100).toFixed(0)}%
                                 </div>
                             </div>
-                            <div className="flex flex-col top-14 w-full h-auto z-20 justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-black text-lg font-semibold">
+                            <div className="flex flex-col top-14 w-full h-full z-20 justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-black text-lg font-semibold">
                                 <button className='w-[200px] h-12 bg-white text-[#B88E2F]' onClick={() => singleProduct(i.id)}>Add to cart</button>
                                 <div className='flex flex-row mt-6'>
                                     <img className='w-4 h-4 me-2' src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/share.png" />

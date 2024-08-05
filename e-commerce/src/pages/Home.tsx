@@ -19,7 +19,7 @@ const Home = () => {
           height: '100vh',
         }}
       >
-        <div className="overlay rounded-lg sm:mx-4 lg:ml-[740px] lg:mt-[100px] xl:w-[640px] xl:h-[440px] lg:w-[640px] lg:h-[440px] md:w-[400px] md:h-[450px] h-2/4 w-2/4">
+        <div className="overlay rounded-lg sm:mx-4 lg:ml-[740px] lg:mt-[100px] xl:w-[640px] xl:h-[440px] lg:w-[640px] lg:h-[440px] md:w-[400px] md:h-[450px] h-3/4 w-2/4">
           <div className='justify-start flex items-start'>
             <span className='text-[#333333] tracking-widest mt-[60px] font-bold text-xl'>New Arrival</span>
           </div>
@@ -33,7 +33,7 @@ const Home = () => {
           </div>
 
           <div className='justify-start flex items-start mt-10'>
-            <button className='bg-[#B88E2F] lg:w-[222px] lg:h-[75px] md:w-[111px] md:h-[35px] sm:w-[111px] sm:h-[35px] md:text-xl sm:text-xs'>BUY</button>
+            <button className='bg-[#B88E2F] lg:w-[222px] lg:h-[75px] md:w-[111px] md:h-[35px] sm:w-[111px] sm:h-[35px] md:text-xl sm:text-xs w-1/3'>BUY</button>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 const Quality = () => {
     return (
         <div className='w-screen h-[270px] bg-[#FAF3EA] py-6 flex justify-center items-center'>
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center items-center mx-auto px-6'>
+            <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center items-center mx-auto px-6 '>
                 <div className='flex flex-row items-center'>
                     <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/img_shop/trophy.png" alt="Troféu" className='w-[50px] h-[60px]' />
                     <div className='flex flex-col ms-3'>

@@ -1,5 +1,5 @@
 import Header from '../components/Header'
-import { Footer } from 'flowbite-react'
+import  Footer  from '../components/Footer'
 import ContactHome from '../components/contact/ContactHome'
 import Quality from '../components/shop/Quality'
 import ContactForm from '../components/contact/ContactForm'

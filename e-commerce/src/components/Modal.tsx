@@ -32,7 +32,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                 <div className='flex flex-row justify-between items-center col-span-12'>
                     <h2 className="text-xl font-semibold">Shopping Cart</h2>
                     <button onClick={onClose}>
-                        <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/cartClose.png'" alt="" />
+                        <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/cartClose.png" alt="" />
                     </button>
                 </div>
                 {cartItems.length < 1 ? <span className='text-center'>Cart empty</span> : (
