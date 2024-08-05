@@ -12,18 +12,16 @@ const RoomsInspiration = () => {
                 </div>
 
                 <div className="col-span-8 flex justify-center items-center">
-                    <div className="w-[404px] h-[582px] sm:h-64 xl:h-80 2xl:h-96">
+                    <div className="w-[404px] h-[582px] sm:h-64 xl:h-80 2xl:h-96 py-4">
                         <Carousel>
                             <div>
-                                <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />
+                                <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/Rectangle+25.png"  />
                                 <div className='w-52 h-32 bg-white'>
 
                                 </div>
                             </div>
-                            <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />
-                            <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />
-                            <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />
-                            <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />
+                            <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/Rectangle+24.png"  />
+                            <img src="https://bucketimgcompass.s3.sa-east-1.amazonaws.com/img/Rectangle+25.png"  />
                         </Carousel>
                     </div>
                 </div>
